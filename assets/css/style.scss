@@ -1,0 +1,47 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+ul, li {
+    list-style: none;
+
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../assets/fonts/Montserrat-Regular.woff2') format('woff2') url('../assets/fonts/Montserrat-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../assets/fonts/Montserrat-Medium.woff2') format('woff2') url('../assets/fonts/Montserrat-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../assets/fonts/Montserrat-Bold.woff2') format('woff2') url('../assets/fonts/Montserrat-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+}
+body {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+$primary-color: #e6b319;
+
+@import "header";
+@import "firstScreen";
