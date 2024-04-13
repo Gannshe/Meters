@@ -71,13 +71,14 @@ header {
   -webkit-column-gap: 25px;
      -moz-column-gap: 25px;
           column-gap: 25px;
+  font-weight: 500;
 }
 .nav li a:hover {
-  color: #e6b319;
+  color: #04448d;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   padding-bottom: 5px;
-  border-bottom: solid 2px #e6b319;
+  border-bottom: solid 2px #04448d;
 }
 
 .header__contact {
