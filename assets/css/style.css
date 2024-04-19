@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *,
 *::after,
 *::before {
@@ -14,6 +15,13 @@ ul, li {
 a {
   text-decoration: none;
   color: #000;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+h1, h2, h3, h4, h5, h6, p, span {
+  margin: 0;
+  padding: 0;
 }
 
 @font-face {
@@ -34,18 +42,58 @@ a {
   font-weight: 700;
   font-style: normal;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 400;
 }
 
+.container {
+  max-width: 1280px;
+  padding: 0 20px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.fade-in {
+  opacity: 0; /* начальное значение непрозрачности */
+  -webkit-animation: fadeIn ease-in 1;
+          animation: fadeIn ease-in 1; /* добавляем анимацию fadeIn */
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; /* будет видимым после завершения анимации */
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s; /* длительность анимации в 1 секунду */
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 header {
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  background-color: #f8f8f8;
+  z-index: 100;
 }
 
 .header__inner {
@@ -74,11 +122,11 @@ header {
   font-weight: 500;
 }
 .nav li a:hover {
-  color: #04448d;
+  color: #04e4fb;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   padding-bottom: 5px;
-  border-bottom: solid 2px #04448d;
+  border-bottom: solid 2px #04e4fb;
 }
 
 .header__contact {
@@ -119,7 +167,461 @@ header {
   scale: 1.1;
 }
 
+.title {
+  font-size: 70px;
+  font-weight: 700;
+  color: #585858;
+}
+
+.center-text {
+  text-align: center;
+}
+
 .first__screen {
   width: 100%;
   height: 100vh;
+  background: url(/assets/img/bg.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.first__screen__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  padding: 85px 0 0 0;
+  gap: 30px;
+}
+.first__screen__inner-title {
+  color: #fff;
+  font-size: 60px;
+  line-height: 60px;
+  font-weight: 700;
+  width: 80%;
+}
+.first__screen__inner-des {
+  color: #fff;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  width: 80%;
+}
+.first__screen__inner-btn {
+  border: 2px solid #04e4fb;
+  color: #04e4fb;
+  font-size: 20px;
+  padding: 20px 45px;
+  font-weight: 500;
+}
+.first__screen__inner-btn:hover {
+  background-color: #04e4fb;
+  color: #fff;
+}
+
+.block-offers {
+  padding-top: 40px;
+  padding-bottom: 75px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.block-offers-item {
+  width: 30%;
+  border-radius: 32px;
+  overflow: hidden;
+  height: 600px;
+  position: relative;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.block-offers-item__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: relative;
+  -webkit-filter: brightness(60%);
+          filter: brightness(60%);
+}
+.block-offers-item__text {
+  color: #fff;
+  position: absolute;
+  padding: 20px;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+.block-offers-item__text-title {
+  font-size: 24px;
+  font-weight: 700;
+}
+.block-offers-item__text-des {
+  font-size: 18px;
+}
+.block-offers-item__text-btn {
+  background-color: #fff;
+  color: #000;
+  border-radius: 32px;
+  font-size: 18px;
+  padding: 16px 34px;
+  text-align: center;
+  font-weight: 700;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.block-offers-item__text-btn:hover {
+  background-color: #000;
+  color: #04e4fb;
+}
+.block-offers-item:hover {
+  scale: 1.05;
+}
+.block-offers-item:last-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  overflow: visible;
+}
+.block-offers-item:last-child:hover {
+  scale: 1;
+}
+.block-offers-item:nth-child(2) .block-offers-item__text {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.block-offers-item:nth-child(2) .block-offers-item__text-title {
+  font-size: 32px;
+  line-height: 42px;
+}
+.block-offers-item:nth-child(2) .block-offers-item__text-des {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.block-offers-item-small {
+  height: 46%;
+  border-radius: 32px;
+  overflow: hidden;
+  position: relative;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.block-offers-item-small:hover {
+  scale: 1.05;
+}
+
+.first-block-mortgage {
+  width: 100%;
+  height: 100vh;
+  background: url(/assets/img/mortgage/bg-mortgage.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.first-block-mortgage__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  padding: 0 20px 0 20px;
+  position: relative;
+  max-width: 1280px;
+  padding: 0 20px;
+  width: 100%;
+  margin: 80px auto 0;
+  overflow: hidden;
+}
+.first-block-mortgage__inner_img {
+  border-radius: 32px;
+  right: 100px;
+  position: absolute;
+}
+.first-block-mortgage__inner-text {
+  width: 620px;
+  height: 530px;
+  background-color: #fff;
+  position: relative;
+  margin-right: 200px;
+  border-radius: 32px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  text-align: center;
+}
+.first-block-mortgage__inner-text-subtitle {
+  font-weight: 500;
+  font-size: 18px;
+}
+.first-block-mortgage__inner-text-title {
+  font-weight: 700;
+  font-size: 90px;
+  width: 85%;
+}
+.first-block-mortgage__inner-text-des {
+  font-size: 22px;
+  width: 85%;
+}
+.first-block-mortgage__inner-text-button {
+  position: absolute;
+  bottom: -25px;
+  background-color: #04e4fb;
+  font-size: 20px;
+  padding: 15px 45px;
+  font-weight: 500;
+  border-radius: 32px;
+}
+.first-block-mortgage__inner-text-button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.final-year {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.final-year__wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 40px;
+}
+.final-year__wrap .wrap__item {
+  width: calc(33.3333333333% - 30px);
+}
+.final-year__wrap .wrap__item-title {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #585858;
+}
+.final-year__wrap .wrap__item-des {
+  font-size: 18px;
+  color: #585858;
+}
+
+.plus {
+  background: #f8f8f8;
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+.plus .plus-help {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 400px;
+  margin-bottom: 40px;
+}
+.plus .plus__img {
+  border-radius: 32px;
+  overflow: hidden;
+  width: calc(60% - 20px);
+}
+.plus .plus__img img {
+  width: 100%;
+  height: inherit;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.plus .plus__text {
+  border-radius: 32px;
+  background-color: #444a54;
+  width: calc(40% - 20px);
+  color: #fff;
+  padding: 40px 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+.plus .plus__text-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.plus .plus__text-des {
+  font-size: 18px;
+  line-height: 1.2;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.plus .plus__text-button {
+  color: #000;
+  background-color: #04e4fb;
+  border-radius: 32px;
+  padding: 15px 30px;
+  font-weight: 700;
+}
+.plus .plus__text-button:hover {
+  background-color: #000;
+  color: #fff;
+}
+.plus .plus__wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 40px;
+}
+.plus .plus__wrap-item {
+  background-color: #fff;
+  padding: 25px;
+  width: 33.3333333333%;
+  border-radius: 32px;
+  color: #585858;
+}
+.plus .plus__wrap-item__title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.plus .plus__wrap-item__des {
+  font-size: 16px;
+  line-height: 25px;
+  height: 100px;
+}
+.plus .plus__wrap-item__number {
+  font-size: 24px;
+  font-weight: 500;
+}
+.plus .plus__wrap-item:nth-child(2) {
+  background: url(/assets/img/mortgage/plus-2.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+}
+.plus .plus__wrap-item:nth-child(3) {
+  background: url(/assets/img/mortgage/plus-3.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+}
+
+.service {
+  background: url(/assets/img/mortgage/service-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 100px;
+  padding-top: 100px;
+}
+.service__wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 50px;
+}
+.service__wrap-item {
+  width: calc(33.3333333333% - 30px);
+  border-radius: 32px;
+  background-color: #fff;
+  padding: 15px 30px 30px 30px;
+  height: 300px;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+.service__wrap-item__number {
+  color: #04e4fb;
+  font-size: 80px;
+  line-height: 1;
+}
+.service__wrap-item__title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 27px;
+}
+.service__wrap-item__des {
+  font-size: 16px;
+  line-height: 25px;
+}
+.service__wrap-item__button {
+  background-color: #fff;
+  border-radius: 0 32px 32px 0;
+  padding: 15px 30px;
+  font-weight: 700;
+  display: inline-block;
+}
+.service__wrap-item:last-child {
+  background-color: #04e4fb;
+  color: #000;
+}
+.service__wrap-item:last-child .service__wrap-item__number {
+  color: #000;
+}
+.service__wrap-item:hover {
+  scale: 1.05;
+  -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }

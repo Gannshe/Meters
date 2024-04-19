@@ -14,6 +14,11 @@ ul, li {
 a {
     text-decoration: none;
     color: #000;
+	transition: all .5s ease-in-out;
+}
+h1, h2, h3, h4, h5, h6, p, span {
+	margin: 0;
+	padding: 0;
 }
 
 @font-face {
@@ -35,13 +40,43 @@ a {
 	font-weight: 700;
 	font-style: normal;
 }
+html {
+	scroll-behavior: smooth;
+}
 body {
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
     font-weight: 400;
 }
 
-$primary-color: #04448d;
+$primary-color: #04e4fb;
+$second-color: #fff;
+$black: #585858;
+
+.container {
+	max-width: 1280px;
+	padding: 0 20px;
+    width: 100%;
+    margin: 0 auto;
+}
+.fade-in {
+	opacity: 0; /* начальное значение непрозрачности */
+	animation: fadeIn ease-in 1; /* добавляем анимацию fadeIn */
+	animation-fill-mode: forwards; /* будет видимым после завершения анимации */
+	animation-duration: 2s; /* длительность анимации в 1 секунду */
+  }
+  
+  @keyframes fadeIn {
+	0% {
+	  opacity: 0;
+	}
+	100% {
+	  opacity: 1;
+	}
+  }
 
 @import "header";
+@import "variables";
 @import "firstScreen";
+@import "block-home";
+@import "mortgage";
