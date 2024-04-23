@@ -625,3 +625,40 @@ header {
   -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
+
+.banks {
+  background-color: #343330;
+  padding-bottom: 100px;
+  padding-top: 100px;
+}
+.banks__inner h2 {
+  color: #fff;
+}
+.banks__wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  gap: 40px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 50px;
+}
+.banks__wrap-item {
+  width: calc(25% - 30px);
+  border: 2px solid #fff;
+  border-radius: 32px;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+.banks__wrap-item img {
+  width: 100%;
+}
+.banks__wrap-item:hover {
+  scale: 1.05;
+}
